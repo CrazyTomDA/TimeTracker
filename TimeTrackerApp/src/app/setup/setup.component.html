@@ -1,0 +1,5 @@
+<div>
+  <!--<app-entity-manager type="Task" parentType="Project"> </app-entity-manager>-->
+  <app-list-manager type="Project" #parent></app-list-manager>
+  <app-list-manager type="Task" [parentEntity]="parent.selectedEntity" [hidden]="!parent.selectedEntity"></app-list-manager>
+</div>

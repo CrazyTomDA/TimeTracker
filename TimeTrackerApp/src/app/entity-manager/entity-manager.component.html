@@ -1,0 +1,23 @@
+<div class="container">
+  <h3 class="text-center">{{action}} {{currentEntity.type}}</h3>
+  <form #entityForm="ngForm">
+    <!--<form #entityForm="ngForm" (ngSubmit)="save(entityName)">-->
+    <!--<div class="form-group" *ngIf="currentEntity.parentType">
+      <label for="parentEntity">Select {{currentEntity.parentType}}</label>
+
+      <select id="parentEntity" name="parentEntity" class="form-control" [(ngModel)]="selectedParentEntity" required>
+        <option disabled hidden [value]="undefined">-- Select --</option>
+        <option *ngFor="let item of parentList" [attr.value]="item.name">{{item.name}}</option>
+      </select>
+    </div>-->
+    <div class="form-group">
+      <label for="entityName">{{currentEntity.type}} Name</label>
+      <input id="entityName" name="entityName" type="text" class="form-control" required placeholder="Enter {{currentEntity.type}} Name" [(ngModel)]="currentEntity.name">
+    </div>
+    <div>
+      <button type="button" class="btn btn-default" [disabled]="!entityForm.form.valid" (click)="save()">Save</button>
+      <button type="button" class="btn btn-default" [disabled]="!currentEntity.id" (click)="delete()">Delete</button>
+      <button type="button" class="btn btn-default" (click)="cancel()">Cancel</button>
+    </div>
+  </form>
+</div>

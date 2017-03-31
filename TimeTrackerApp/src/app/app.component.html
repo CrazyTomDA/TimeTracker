@@ -1,0 +1,10 @@
+<div>
+  <h1 class="text-center">My TimeTracker</h1>
+  <nav>
+    <a routerLink="/home" routerLinkActive="active">Home</a>
+    <a routerLink="/setup" routerLinkActive="active">Setup</a>
+    <a routerLink="/report" routerLinkActive="active">Report</a>
+  </nav>
+  <router-outlet></router-outlet>
+  <toaster-container [toasterconfig]="config"></toaster-container>
+</div>

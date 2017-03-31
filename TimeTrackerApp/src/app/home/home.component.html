@@ -1,0 +1,24 @@
+<div class="container">
+  <form #homeForm="ngForm">
+    <div class="form-group">
+      <label for="project">Project</label>
+      <select id="project" name="project" class="form-control selectpicker" [(ngModel)]="selectedProjectId" (change)="onProjectChange()"
+        required>
+        <option disabled hidden [value]="undefined">-- Select --</option>
+        <option *ngFor="let item of projects" [attr.value]="item.id">{{item.name}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="task">Task</label>
+      <select id="task" name="task" class="form-control" [(ngModel)]="selectedTaskId" required>
+        <option disabled hidden [value]="undefined">-- Select --</option>
+        <ng-container *ngFor="let item of tasksByProject">
+          <option [attr.value]="item.id">{{item.name}}</option>
+        </ng-container>
+      </select>
+    </div>
+    <div class="text-center">
+      <button type="button" class="btn btn-default" routerLink="/timer/{{selectedTaskId}}" [disabled]="!homeForm.form.valid">Start</button>
+    </div>
+  </form>
+</div>

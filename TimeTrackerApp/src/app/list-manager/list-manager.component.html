@@ -1,0 +1,13 @@
+<div class="container">
+  <h3 *ngIf="!parentEntity" class="text-center pointer" routerLink="/entity-manager/{{type}}/{{selectedEntity?.id}}">{{action}} {{type}}</h3>
+  <h3 *ngIf="parentEntity" class="text-center pointer" routerLink="/entity-manager/{{parentEntity.type}}/{{parentEntity?.id}}/{{type}}/{{selectedEntity?.id}}">{{action}} {{type}}</h3>
+
+  <ul class="list-group">
+    <ng-container *ngIf="!parentEntity">
+      <li *ngFor="let entity of entityList" class="list-group-item pointer" [class.active]="isSelected(entity)" (click)="onSelect(entity)">{{entity.name}}</li>
+    </ng-container>
+    <ng-container *ngFor="let entity of entityList">
+      <li *ngIf="parentEntity && entity.parentId === parentEntity.id" class="list-group-item pointer" [class.active]="isSelected(entity)" (click)="onSelect(entity)">{{entity.name}}</li>
+    </ng-container>
+  </ul>
+</div>

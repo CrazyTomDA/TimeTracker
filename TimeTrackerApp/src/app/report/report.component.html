@@ -1,0 +1,26 @@
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>SNo.</th>
+        <th>Date</th>
+        <th>Project</th>
+        <th>Task</th>        
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Duration</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let workStat of workStatsList; let i=index">
+        <td>{{i + 1}}</td>
+        <td>{{workStat.startTime | date:"EEEE MMM d, yyyy"}}</td>
+        <td>{{workStat.project}}</td>
+        <td>{{workStat.task}}</td>        
+        <td>{{workStat.startTime | date:"HH:mm:ss"}}</td>
+        <td>{{workStat.endTime | date:"HH:mm:ss"}}</td>
+        <td>{{(workStat.endTime - workStat.startTime)/1000 | displayTime}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="form-group">
+    <label for="project">Project</label>
+    <p class="form-control-static">{{workStats.project}}</p>
+  </div>
+  <div class="form-group">
+    <label for="task">Task</label>
+    <p class="form-control-static">{{workStats.task}}</p>
+  </div>
+  <div class="form-group">
+    <label for="startTime">Start Time</label>
+    <p class="form-control-static">{{workStats.startTime | date:"HH:mm:ss"}}</p>
+  </div>
+  <div class="form-group">
+    <label for="endTime">End Time</label>
+    <p class="form-control-static">{{workStats.endTime | date:"HH:mm:ss"}}</p>
+  </div>
+  <div class="form-group">
+    <label for="duration">Duration</label>
+    <p class="form-control-static">{{(workStats.endTime - workStats.startTime) / 1000 | displayTime}}</p>
+  </div>
+  <div class="text-center">
+      <button type="button" class="btn btn-default" (click)="SaveWorkStats()">Save</button>
+    </div>
+</div>
